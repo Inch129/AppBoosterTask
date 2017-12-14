@@ -13,7 +13,7 @@ export default class MasterActivity extends Component {
         };
 
     }
-
+    //Из стилей он ругался на нулевой индекс, типо там # стояла, оставил так, ну его.
     static navigationOptions = {
         title: 'Список доступных заданий',
         headerStyle: { backgroundColor: '#1160AA' },
@@ -149,7 +149,7 @@ export default class MasterActivity extends Component {
     render() {
         /**
          * Рендерим сам список
-         * Закомментированные пропсы - событие, когда упёрлись в пол, дёргает loadMore
+         * Закомментированные пропсы - события, когда упёрлись в пол, дёргает loadMore
          */
         return (
             <View >

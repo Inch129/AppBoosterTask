@@ -3,7 +3,11 @@ import {View, TouchableOpacity, Image, Text, PixelRatio} from 'react-native';
 import * as css from './Styles';
 
 export default class ListItem extends Component {
-
+    /**
+     * Вызываем родительское событие для срабатывания по кнопке в дочернем элементе
+     * Переход на Details Activity
+     * @private
+     */
     _details = () => {
         this.props.eventComponentMain();
     };
@@ -12,8 +16,7 @@ export default class ListItem extends Component {
      * Возвращает конкретный элемент списка
      * Предварительно валидируя (хоть и топорно), склоняя денежную единицу в рублях
      * Тем самым приводя в более читабельный (человеческий) вид
-     * Пытался применить PixelRatio для
-     * @returns {View}
+     ** @returns {View}
      */
 
     render() {
@@ -29,7 +32,6 @@ export default class ListItem extends Component {
                         <Text style={css.listItem.cardText}>устанавливая {item.title}</Text>
                     </View>
                 </View>
-
             </TouchableOpacity>;
 
     }

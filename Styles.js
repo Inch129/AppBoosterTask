@@ -6,12 +6,13 @@ export const colors = {
     "row_background": "#E3F3F7",
     "card_text_color": "#1989AC",
     "tooltip_color": "#F6F6F6",
-    "tooltip_container": "#A6D0E4"
-
+    "tooltip_container": "#598798",
+    "warningText": "#F96D00"
 };
 
-
-
+/**
+ * Стили основного экрана
+ */
 export const masterScreen = StyleSheet.create({
     containerTooltip: {
         backgroundColor: colors.tooltip_container
@@ -24,20 +25,67 @@ export const masterScreen = StyleSheet.create({
     }
 });
 
+/**
+ * Стили окна с подробной информацией
+ */
+
 export const details = StyleSheet.create({
     container: {
         backgroundColor: colors.card_text_color
     },
-    info_text: {
+    infoText: {
         fontSize: 18,
         marginBottom: 10,
         color: "#008080"
     },
-    link_button: {
+    detailsContainer: {
+        margin: 15
+    },
+    detailsHeadContainer: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    detailsHeadImg: {
+        width: 100,
+        height: 100
+    },
+    detailsHeadTextContainer: {
+        flexDirection: "column",
+        alignItems: "stretch"
+    },
+    detailsHeadTitleText: {
+        margin: 10,
         marginTop: 30,
-        margin: 10
+        fontSize: 17
+    },
+    detailsHeadBonus: {
+        margin: 10,
+        marginBottom: 30,
+        fontSize: 17
+    },
+    paragraphsTitle: {
+        fontSize: 19
+    },
+    regularParagraph: {
+        fontSize: 16,
+        marginTop: 10
+    },
+    lastParagraph: {
+        fontSize: 16,
+        marginTop: 10,
+        marginBottom: 20
+    },
+    editWarnings: {
+        fontSize: 16,
+        margin: 5,
+        marginTop: 15,
+        color: colors.warningText
     }
 });
+
+/**
+ * Стили конкретного элемента
+ */
 
 export const listItem = StyleSheet.create({
     row: {
