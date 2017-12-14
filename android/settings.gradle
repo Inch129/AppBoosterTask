@@ -1,0 +1,3 @@
+rootProject.name = 'AppBoosterProject'
+
+include ':app'
