@@ -7,7 +7,10 @@ export const colors = {
     "card_text_color": "#1989AC",
     "tooltip_color": "#F6F6F6",
     "tooltip_container": "#A6D0E4"
+
 };
+
+
 
 export const masterScreen = StyleSheet.create({
     containerTooltip: {
@@ -25,8 +28,14 @@ export const details = StyleSheet.create({
     container: {
         backgroundColor: colors.card_text_color
     },
-    button: {
-        width: 50
+    info_text: {
+        fontSize: 18,
+        marginBottom: 10,
+        color: "#008080"
+    },
+    link_button: {
+        marginTop: 30,
+        margin: 10
     }
 });
 

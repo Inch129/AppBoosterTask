@@ -14,6 +14,12 @@ export default class MasterActivity extends Component {
 
     }
 
+    static navigationOptions = {
+        title: 'Список доступных заданий',
+        headerStyle: { backgroundColor: '#1160AA' },
+        headerTitleStyle: { color: '#D1F386' },
+    };
+
     /**
      * Оставлю даже консоль.лог,
      * Сегодня я солдат удачи,
@@ -25,7 +31,8 @@ export default class MasterActivity extends Component {
         console.log(this.props);
         let {navigate} = this.props.navigation;
         return navigate('Details', {
-            item: item
+            item: item,
+            pluralize: this._pluralize
         });
 
     }
@@ -38,7 +45,7 @@ export default class MasterActivity extends Component {
      */
 
     _renderItem = ({item}) => {
-        return <ListItem eventComponentMain={this.eventItem.bind(this, item)} item={item}/>
+        return <ListItem pluralize={this._pluralize} eventComponentMain={this.eventItem.bind(this, item)} item={item}/>
     };
 
     /**
@@ -69,6 +76,54 @@ export default class MasterActivity extends Component {
                 console.error(error);
             });
     };
+
+
+    /**
+     * Для отсеивания "некрасивых" чисел, вроде [5.0, 2.0, -1.0, etc...]
+     * Предполагается, что цены
+     * @param number
+     * @returns {int, double}
+     * @private
+     */
+
+    _filterFormat = (number) => {
+        let pattern = /\d*\.0/;
+
+        if (pattern.test(number)) {
+            return parseInt(number);
+        }
+        return number;
+    };
+
+
+
+    /**
+     * Склоняем
+     * @param number
+     * @returns {String}
+     * @private
+     */
+
+    _pluralize = (number) => {
+        if (isNaN(number)) {
+            return warn("Не число");
+        }
+
+        let check = this._filterFormat(number);
+        switch (check) {
+            case 1:
+                return check + " рубль";
+            case 2:
+            case 3:
+            case 4:
+                return check + " рубля";
+            default:
+                break;
+        }
+        return check + " рублей";
+
+    };
+
 
 
     /**
